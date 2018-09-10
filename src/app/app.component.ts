@@ -6,6 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  loadedFeature = 'recipe';
+
   @Input() serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
 
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
@@ -31,4 +34,9 @@ export class AppComponent {
   onDestroyFirst() {
     this.serverElements.splice(0, 1);
   }
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
+
 }
