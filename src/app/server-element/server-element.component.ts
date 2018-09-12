@@ -1,6 +1,6 @@
 import {
   Component, OnInit, Input, ViewEncapsulation, ViewChild, OnChanges, SimpleChange, DoCheck,
-  AfterContentInit, AfterContentChecked, OnDestroy, ViewChild, ElementRef, AfterViewInit, ContentChild } from '@angular/core';
+  AfterContentInit, AfterContentChecked, OnDestroy, ElementRef, AfterViewInit, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -19,9 +19,9 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck, After
     console.log('constructor called');
    }
 
-  ngOnChanges(changes: SimpleChange) {
+  ngOnChanges() {
     console.log('ngOnChanges called');
-    console.log(changes);
+    // console.log(changes);
   }
 
   ngOnInit() {
