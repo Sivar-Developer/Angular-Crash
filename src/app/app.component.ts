@@ -1,15 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AccountService } from './account.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AccountService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
+  accounts: {name: string, status: string}[] = [];
   loadedFeature = 'recipe';
 
   @Input() serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
+
+  constructor(private accountService: AccountService) {}
+
+  ngOnInit() {
+    this.accounts = this.accountService.accounts;
+  }
 
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
