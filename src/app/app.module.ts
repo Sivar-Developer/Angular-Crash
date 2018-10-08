@@ -17,6 +17,7 @@ import { ServerElementComponent } from './server-element/server-element.componen
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AccountService } from './account.service';
 import { LoggingService } from './logging.service';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { LoggingService } from './logging.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [AccountService, LoggingService],
+  providers: [AccountService, LoggingService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
