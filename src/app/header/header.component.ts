@@ -3,8 +3,8 @@ import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  providers: [LoggingService]
+  templateUrl: './header.component.html'
+  // providers: [LoggingService]
 })
 export class HeaderComponent {
 
@@ -17,6 +17,7 @@ export class HeaderComponent {
   }
 
   onMain(accountStatus: string) {
-    this.loggingService.logStatusChange(accountStatus);
+    console.log('ok');
+    // this.loggingService.logStatusChange(accountStatus);
   }
 }
