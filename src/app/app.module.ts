@@ -19,6 +19,7 @@ import { AccountService } from './account.service';
 import { LoggingService } from './logging.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AppRoutingModule } from './app-routing.module';
     ShoppingEditComponent,
     CockpitComponent,
     ServerElementComponent,
-    DropdownDirective
+    DropdownDirective,
+    RecipeStartComponent
   ],
   imports: [
     BrowserModule,
