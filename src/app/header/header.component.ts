@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { LoggingService } from '../logging.service';
+import { Component } from '@angular/core';
+// import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +8,16 @@ import { LoggingService } from '../logging.service';
 })
 export class HeaderComponent {
 
-  @Output() featureSelected = new EventEmitter<string>();
+  // @Output() featureSelected = new EventEmitter<string>();
 
-  constructor(private loggingService: LoggingService) { }
+  // constructor(private loggingService: LoggingService) { }
 
-  onSelect(feature: string) {
-    this.featureSelected.emit(feature);
-  }
+  // onSelect(feature: string) {
+  //   this.featureSelected.emit(feature);
+  // }
 
   onMain(accountStatus: string) {
-    console.log('ok');
+    console.log(accountStatus);
     // this.loggingService.logStatusChange(accountStatus);
   }
 }
