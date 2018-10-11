@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 // import { LoggingService } from '../logging.service';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+import { map, filter, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +10,34 @@ import { Component } from '@angular/core';
   // providers: [LoggingService]
 })
 export class HeaderComponent {
+
+  const myObservable = Observable.create((observer: Observer<string>) => {
+
+    setTimeout(() => {
+      observer.next('first package');
+    }, 2000);
+
+    setTimeout(() => {
+      observer.next('first package');
+    }, 2000);
+
+    setTimeout(() => {
+      observer.complete();
+    }, 2000);
+
+    setTimeout(() => {
+      observer.error('first package');
+    }, 2000);
+
+  });
+
+  // myObservable.subscribe(
+  //   (data: string) => { console.log(data); },
+  //   (error: string) => { console.log(error); },
+  //   () => { console.log('completed'); }
+  // );
+
+
 
   // @Output() featureSelected = new EventEmitter<string>();
 
@@ -16,8 +47,8 @@ export class HeaderComponent {
   //   this.featureSelected.emit(feature);
   // }
 
-  onMain(accountStatus: string) {
-    console.log(accountStatus);
-    // this.loggingService.logStatusChange(accountStatus);
-  }
+  // onMain(accountStatus: string) {
+  //   console.log(accountStatus);
+  //   // this.loggingService.logStatusChange(accountStatus);
+  // }
 }
