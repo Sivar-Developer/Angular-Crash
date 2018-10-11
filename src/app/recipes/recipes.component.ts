@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Observable, Observer, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
 
-import { Recipe } from './recipe.model';
 import { RecipeService } from './recipe.service';
 
 @Component({
@@ -14,20 +12,11 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipesComponent implements OnInit, OnDestroy {
 
-  selectedRecipe: Recipe;
-  numbersObsSubscription: Subscription;
   customObsSubscription: Subscription;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.recipeService.recipeSelected
-      .subscribe(
-        (recipe: Recipe) => {
-          this.selectedRecipe = recipe;
-        }
-      );
-
     const myObservable = Observable.create((observer: Observer<string>) => {
 
       setTimeout(() => {
@@ -57,7 +46,6 @@ export class RecipesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.recipeService.recipeSelected.unsubscribe();
     this.customObsSubscription.unsubscribe();
   }
 
