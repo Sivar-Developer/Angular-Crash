@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/observer';
-import 'rxjs/Rx';
+import { Subscription } from 'rxjs/Subscription';
+// import 'rxjs/Rx';
 
 import { Recipe } from './recipe.model';
 import { RecipeService } from './recipe.service';
@@ -13,9 +14,11 @@ import { RecipeService } from './recipe.service';
   styleUrls: ['./recipes.component.css'],
   providers: [RecipeService]
 })
-export class RecipesComponent implements OnInit {
+export class RecipesComponent implements OnInit, OnDestroy {
 
   selectedRecipe: Recipe;
+  numbersObsSubscription: Subscription;
+  customObsSubscription: Subscription;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -28,6 +31,7 @@ export class RecipesComponent implements OnInit {
       );
 
     const myObservable = Observable.create((observer: Observer<string>) => {
+
       setTimeout(() => {
         observer.next('first package');
       }, 2000);
@@ -47,11 +51,16 @@ export class RecipesComponent implements OnInit {
 
     });
 
-    myObservable.subscribe(
+    this.customObsSubscription = myObservable.subscribe(
       (data: string) => { console.log(data); },
       (error: string) => { console.log(error); },
       () => { console.log('completed'); }
     );
+  }
+
+  ngOnDestroy() {
+    this.recipeService.recipeSelected.unsubscribe();
+    this.customObsSubscription.unsubscribe();
   }
 
 }
