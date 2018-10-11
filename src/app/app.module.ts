@@ -45,7 +45,11 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AccountService, LoggingService, ShoppingListService],
+  providers: [
+    AccountService,
+    LoggingService,
+    ShoppingListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

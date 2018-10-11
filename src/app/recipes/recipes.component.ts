@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/observer';
-import { Subscription } from 'rxjs/Subscription';
-// import 'rxjs/Rx';
+import { Observable, Observer, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Recipe } from './recipe.model';
 import { RecipeService } from './recipe.service';
