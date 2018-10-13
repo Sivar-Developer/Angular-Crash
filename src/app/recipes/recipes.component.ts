@@ -2,13 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Observable, Observer, Subscription } from 'rxjs';
 
-import { RecipeService } from './recipe.service';
+// import { RecipeService } from './recipe.service';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.css'],
-  providers: [RecipeService]
+  styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit, OnDestroy {
 
