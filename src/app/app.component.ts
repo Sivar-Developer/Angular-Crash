@@ -10,6 +10,11 @@ export class AppComponent implements OnInit {
 
   accounts: {name: string, status: string}[] = [];
   loadedFeature = 'recipe';
+  info = {
+    name: 'Anything',
+    number: 123.45356,
+    date: new Date(2018, 10, 14)
+  };
 
   @Input() serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
 
