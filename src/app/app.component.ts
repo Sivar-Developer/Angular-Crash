@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
     name: '',
     storage: 0
   };
+  appName = this.serverService.getAppName();
 
   @Input() serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
 
