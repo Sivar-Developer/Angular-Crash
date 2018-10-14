@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Response } from '@angular/http';
+
+import { DataStorageService } from '../shared/data-storage.service';
 // import { LoggingService } from '../logging.service';
 // import { Observable, Observer } from 'rxjs';
 // import { map } from 'rxjs/operators';
@@ -11,6 +14,15 @@ import { Component } from '@angular/core';
   // providers: [LoggingService]
 })
 export class HeaderComponent {
+
+  constructor(private dataStorageService: DataStorageService) { }
+
+  onSaveData() {
+    this.dataStorageService.storeRecipes()
+        .subscribe(
+          (response: Response) => { console.log(response); }
+        );
+  }
 
   // const myObservable = Observable.create((observer: Observer<string>) => {
 

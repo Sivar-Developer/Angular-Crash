@@ -26,6 +26,7 @@ import { RecipeService } from './recipes/recipe.service';
 import { ShortenPipe } from './shorten.pipe';
 import { FilterPipe } from './filter.pipe';
 import { ServerService } from './server.service';
+import { DataStorageService } from './shared/data-storage.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ServerService } from './server.service';
     LoggingService,
     ShoppingListService,
     RecipeService,
-    ServerService
+    ServerService,
+    DataStorageService
   ],
   bootstrap: [AppComponent]
 })
