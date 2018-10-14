@@ -24,6 +24,10 @@ export class HeaderComponent {
         );
   }
 
+  onFetchData() {
+    this.dataStorageService.getRecipes();
+  }
+
   // const myObservable = Observable.create((observer: Observer<string>) => {
 
   //   setTimeout(() => {

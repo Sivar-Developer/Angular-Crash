@@ -14,6 +14,11 @@ export class RecipeService {
 
   constructor(private slService: ShoppingListService) { }
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   private recipes: Recipe[] = [
     new Recipe('A Test Recipe', 'This is simply a test', 'https://toriavey.com/images/2015/04/Brisket-6-1-720x960.jpg',
         [
