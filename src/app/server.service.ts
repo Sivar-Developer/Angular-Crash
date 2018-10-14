@@ -8,12 +8,17 @@ export class ServerService {
 
   constructor(private http: Http) { }
 
+  getServers() {
+    return this.http.get('https://angular-course-c8106.firebaseio.com/data.json');
+  }
+
   storeServers(servers: any) {
     const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post('https://angular-course-c8106.firebaseio.com/data.json', servers, { headers: headers });
   }
 
-  getServers() {
-    return this.http.get('https://angular-course-c8106.firebaseio.com/data.json');
+  updateServers(servers: any) {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put('https://angular-course-c8106.firebaseio.com/data.json', servers, { headers: headers });
   }
 }

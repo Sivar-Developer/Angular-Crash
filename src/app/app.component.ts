@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
     this.accounts = this.accountService.accounts;
     this.serverService.getServers()
         .subscribe(
-          (response: Response) => {
+          (response) => {
             const data = response.json();
             console.log(data);
            },
