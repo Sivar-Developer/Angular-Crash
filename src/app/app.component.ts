@@ -15,6 +15,11 @@ export class AppComponent implements OnInit {
     number: 123.45356,
     date: new Date(2018, 10, 14)
   };
+  appStatus = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('stable');
+    }, 2000);
+  });
 
   @Input() serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
 
