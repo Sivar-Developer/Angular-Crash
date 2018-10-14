@@ -36,6 +36,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.accounts = this.accountService.accounts;
+    this.serverService.getServers()
+        .subscribe(
+          (response: Response) => {
+            const data = response.json();
+            console.log(data);
+           },
+          (error) => { console.log(error); }
+        );
   }
 
   onSave() {
