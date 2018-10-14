@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { AccountService } from './account.service';
+import { ServerService } from './server.service';
 
 @Component({
   selector: 'app-root',
@@ -20,13 +22,28 @@ export class AppComponent implements OnInit {
       resolve('stable');
     }, 2000);
   });
+  servers = {
+    name: '',
+    storage: 0
+  };
 
   @Input() serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
 
-  constructor(private accountService: AccountService) {}
+  constructor(
+    private accountService: AccountService,
+    private serverService: ServerService
+    ) {}
 
   ngOnInit() {
     this.accounts = this.accountService.accounts;
+  }
+
+  onSave() {
+    this.serverService.storeServers(this.servers)
+        .subscribe(
+          (response) => { console.log(Response); },
+          (error) => { console.log(error); }
+        );
   }
 
   onServerAdded(serverData: {serverName: string, serverContent: string}) {

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { RecipeService } from './recipes/recipe.service';
 import { ShortenPipe } from './shorten.pipe';
 import { FilterPipe } from './filter.pipe';
+import { ServerService } from './server.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { FilterPipe } from './filter.pipe';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],
@@ -55,7 +58,8 @@ import { FilterPipe } from './filter.pipe';
     AccountService,
     LoggingService,
     ShoppingListService,
-    RecipeService
+    RecipeService,
+    ServerService
   ],
   bootstrap: [AppComponent]
 })

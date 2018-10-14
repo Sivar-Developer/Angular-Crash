@@ -9,6 +9,7 @@
           <li class="list-group-item">Number: {{ info.number }}</li>
           <li class="list-group-item disabled">Date: {{ info.date | date }} || {{ info.date | date:'fullDate' | uppercase }} || {{ info.date | date:'longDate' }}</li>
         </ul>
+        <button class="btn btn-primary" (click)="onSave(servers = { name: 'S3 AWS', storage: 1000 })">Save Servers</button>
       </div><hr>
       <router-outlet></router-outlet>
     </div>
